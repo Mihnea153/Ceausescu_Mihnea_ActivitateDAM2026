@@ -35,7 +35,11 @@ public class Activity3 extends AppCompatActivity {
                 Toast.makeText(Activity3.this, cameraSelectata.toString(),Toast.LENGTH_LONG).show();
             });
 
-
+            lvCamere.setOnItemLongClickListener((parent, view, position, id) -> {
+            listaPrimita.remove(position);
+            adapter.notifyDataSetChanged();
+            return true;
+            });
         }
     }
 }
