@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         Button btnAdauga = findViewById(R.id.btnAdauga);
-        tvRezultat = findViewById(R.id.tvRezultat);
+      tvRezultat = findViewById(R.id.tvRezultat);
 
         btnAdauga.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, Activity2.class);
@@ -68,6 +68,15 @@ public class MainActivity extends AppCompatActivity {
         btnAdaugaAi.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, ActivityAi.class);
             launcher.launch(intent);
+        });
+
+        Button btnVL=findViewById(R.id.btnVL);
+
+        btnVL.setOnClickListener(v->{
+          Intent intent = new Intent (MainActivity.this, Activity3.class);
+            intent.putParcelableArrayListExtra("listaCamere",listaCamere);
+            startActivity(intent);
+
         });
 
 

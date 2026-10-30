@@ -61,4 +61,4 @@ public class Camera implements Parcelable {
     public String getIncalzire() { return incalzire; }
 
     @Override
-    public String toString(){return "Mp2: " + mp2  + " Balcon: " + (balcon ? "Da" : "Nu") + " Aer Conditionat: " + (aerconditionat ? "Da" : "Nu") + " Incalzire: " + incalzire ;}}
+    public String toString(){return "Camera are: " + mp2 + " mp2," + " Balcon: " + (balcon ? "Da" : "Nu") + " Aer Conditionat: " + (aerconditionat ? "Da" : "Nu") + " Incalzire: " + incalzire ;}}
