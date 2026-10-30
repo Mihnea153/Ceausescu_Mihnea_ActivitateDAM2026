@@ -12,6 +12,8 @@ public class Camera implements Parcelable {
 
 
 
+
+
     public Camera(float mp2, boolean balcon, boolean aerconditionat, String incalzire)
     {   this.mp2 = mp2;
         this.balcon=balcon;

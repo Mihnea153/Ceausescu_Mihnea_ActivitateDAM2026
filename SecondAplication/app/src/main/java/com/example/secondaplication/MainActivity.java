@@ -14,7 +14,11 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
+
+    private ArrayList<Camera> listaCamere = new ArrayList<>();
     private TextView tvRezultat;
     private final ActivityResultLauncher<Intent> launcher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
@@ -24,6 +28,11 @@ public class MainActivity extends AppCompatActivity {
                     if (bundle != null) {
                         Camera cameraPrimita = bundle.getParcelable("CameraMea");
                         if (cameraPrimita != null) {
+
+
+                            listaCamere.add(cameraPrimita);
+
+
                             tvRezultat.setText(cameraPrimita.toString());
                             Toast.makeText(this, cameraPrimita.toString(), Toast.LENGTH_LONG).show();
                         }
