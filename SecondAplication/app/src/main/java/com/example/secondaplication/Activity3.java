@@ -29,6 +29,13 @@ public class Activity3 extends AppCompatActivity {
                     listaPrimita
             );
             lvCamere.setAdapter(adapter);
+
+            lvCamere.setOnItemClickListener((parent,view,position,id)->{
+              Camera cameraSelectata = listaPrimita.get(position);
+                Toast.makeText(Activity3.this, cameraSelectata.toString(),Toast.LENGTH_LONG).show();
+            });
+
+
         }
     }
 }
