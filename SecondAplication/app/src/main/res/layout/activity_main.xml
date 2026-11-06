@@ -29,16 +29,7 @@
         android:text="Afiseaza Camere"
         />
 
-    <TextView
-        android:id="@+id/tvRezultat"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="________________________"
-        android:textSize="16sp"
-        android:textColor="#37474F"
-        android:padding="20dp"
-        android:lineSpacingExtra="6dp"
-        android:gravity="start"/>
+
 
 
 </LinearLayout>

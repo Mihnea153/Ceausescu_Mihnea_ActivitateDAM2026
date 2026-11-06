@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     public static ArrayList<Camera> listaCamere = new ArrayList<>();
-    private TextView tvRezultat;
+
     private final ActivityResultLauncher<Intent> launcher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             result -> {
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
                             listaCamere.add(cameraPrimita);
 
 
-                            tvRezultat.setText(cameraPrimita.toString());
+
                             Toast.makeText(this, cameraPrimita.toString(), Toast.LENGTH_LONG).show();
                         }
                     }
@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         Button btnAdauga = findViewById(R.id.btnAdauga);
-      tvRezultat = findViewById(R.id.tvRezultat);
+
 
         btnAdauga.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, Activity2.class);
