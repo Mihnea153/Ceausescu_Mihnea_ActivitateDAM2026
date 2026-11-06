@@ -17,6 +17,12 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class Activity2 extends AppCompatActivity {
+    private int pozitieDeEditat = -1;
+
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +41,23 @@ public class Activity2 extends AppCompatActivity {
         RadioGroup rgIncalzire = findViewById(R.id.rgIncalzire);
         Button btnSalveaza = findViewById(R.id.btnSalveaza);
 
+        Intent intent = getIntent();
+        if (intent.hasExtra("cameraEditare")) {
+            Camera cameraPrimita = intent.getParcelableExtra("cameraEditare");
+            pozitieDeEditat = intent.getIntExtra("pozitieEditare", -1);
+
+            if (cameraPrimita != null) {
+
+
+                etMp2.setText(String.valueOf(cameraPrimita.getMp2()));
+                cbBalcon.setChecked(cameraPrimita.getBalcon());
+
+
+                btnSalveaza.setText("Modifica");
+            }
+        }
+
+
         btnSalveaza.setOnClickListener(v->{
             String textMp2 = etMp2.getText().toString();
             float mp2 = textMp2.isEmpty() ? 0f: Float.parseFloat(textMp2);
@@ -49,11 +72,19 @@ public class Activity2 extends AppCompatActivity {
             Bundle bundle = new Bundle();
             bundle.putParcelable("CameraMea", c);
 
-            Intent intentRezultat = new Intent();
-            intentRezultat.putExtras(bundle);
-            setResult(RESULT_OK, intentRezultat);
+            Intent resultIntent = new Intent();
 
-     finish();
+            if (pozitieDeEditat != -1) {
+
+                resultIntent.putExtra("cameraModificata", c);
+                resultIntent.putExtra("pozitieEditare", pozitieDeEditat);
+            } else {
+
+                resultIntent.putExtra("CameraMea", c);
+            }
+
+            setResult(RESULT_OK, resultIntent);
+            finish();
         });
     }
 }

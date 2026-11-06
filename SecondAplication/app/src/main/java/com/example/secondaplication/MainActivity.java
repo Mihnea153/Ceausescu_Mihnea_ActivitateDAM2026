@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ArrayList<Camera> listaCamere = new ArrayList<>();
+    public static ArrayList<Camera> listaCamere = new ArrayList<>();
     private TextView tvRezultat;
     private final ActivityResultLauncher<Intent> launcher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
